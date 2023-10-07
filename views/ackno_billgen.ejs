@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanks for using!</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            font-size: 24px;
+            color: #333;
+        }
+        h5 {
+            font-size: 18px;
+            color: #666;
+            margin-top: 10px;
+        }
+        a {
+            display: block;
+            font-size: 20px;
+            color: #007bff;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Thanks for using the service!</h2>
+        <h5>Bill has been generated! You can access it via this link:</h5>
+        <a href="<%= link_url %>">Bill</a>
+    </div>
+</body>
+</html>
