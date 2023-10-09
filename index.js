@@ -49,11 +49,8 @@ app.set('view engine', 'ejs');
 app.set('views', path.resolve('./views'));
 
 app.use(express.json());
-app.use(
-  express.urlencoded({
-    extended: false,
-  })
-);
+app.use(express.urlencoded({ extended: false }));
+
 
 app.get('/', (req, res) => {
   return res.render('homepage');
@@ -93,6 +90,62 @@ app.post('/', upload.single('userBill'), async (req, res) => {
     return res.render('errorpage', { error: error });
   }
 });
+
+app.get('/onboard',(req,res)=>{
+  return res.render('merchant-registration',{name:'harsh'})
+})
+
+app.post('/onboard',(req,res)=>{
+  const { name, address, email, password, storeName, fssaiNo } = req.body;
+  // Example: Validate the data (you can add more validation logic)
+  if (!name || !address || !email || !password || !storeName || !fssaiNo) {
+    return res.render('merchant-registration.ejs', { error: 'Please fill out all fields.' });
+  }
+
+  // Handle registration logic (e.g., store in a database)
+
+  // Redirect to a success page or send a success message
+  res.render('registration-success.ejs', { name });
+})
+
+app.get('/profile/:id',(req,res)=>{
+  const merchantProfile = {
+      "image": "path/to/profile-image.jpg",
+      "name": "Merchant Name",
+      "email": "merchant@example.com",
+      "storeName": "My Store",
+      "fssaiNo": "FSSAI123456789",
+      "description": "A brief description of the merchant.",
+      "bills": [
+        {
+          "name": "Bill 1",
+          "orderPrice": 20,
+          "billURL": "https://example.com/bill1",
+          "billID": "12345"
+        },
+        {
+          "name": "Bill 2",
+          "orderPrice": 30,
+          "billURL": "https://example.com/bill2",
+          "billID": "67890"
+        },
+        {
+          "name": "Bill 3",
+          "orderPrice": 25,
+          "billURL": "https://example.com/bill3",
+          "billID": "54321"
+        },
+        {
+          "name": "Bill 4",
+          "orderPrice": 40,
+          "billURL": "https://example.com/bill4",
+          "billID": "98765"
+        }
+      ]
+  }
+  
+  res.render('merchant_profile.ejs', {merchantProfile})
+})
 
 app.get('/:id', (req, res) => {
   const id = req.params.id;

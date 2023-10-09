@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merchant Profile</title>
+    <style>
+        /* Add your CSS styles for the profile page here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .profile-container {
+            display: flex;
+            justify-content: space-between;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin: 20px;
+            padding: 20px;
+        }
+
+        .profile-info {
+            width: 25%;
+            text-align: center;
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif; /* Use the Poppins font */
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 10px auto;
+        }
+
+        .merchant-name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-transform: uppercase; /* Uppercase the merchant's name */
+        }
+
+        .merchant-details {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .merchant-description {
+            font-size: 16px;
+            font-style: italic; /* Make the description italic */
+        }
+
+        .profile-cards {
+            width: 65%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .bill-cell {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            width: calc(33.33% - 20px); /* 3 cells per row with margin */
+            margin-right: 20px;
+            margin-bottom: 20px;
+        }
+
+        .bill-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .bill-details {
+            font-size: 16px;
+        }
+    </style>
+    <!-- Include the Poppins font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="profile-container">
+        <div class="profile-info">
+            <img src="<%= merchantProfile.image %>" alt="Merchant Profile Image" class="profile-image">
+            <h1 class="merchant-name"><%= merchantProfile.name %></h1>
+            <p class="merchant-details"><strong>Email:</strong> <%= merchantProfile.email %></p>
+            <p class="merchant-details"><strong>Store Name:</strong> <%= merchantProfile.storeName %></p>
+            <p class="merchant-details"><strong>FSSAI Lic No:</strong> <%= merchantProfile.fssaiNo %></p>
+            <p class="merchant-description"><%= merchantProfile.description %></p>
+        </div>
+        <div class="profile-cards">
+            <!-- Dynamic Bill Cells -->
+            <% for (const bill of merchantProfile.bills) { %>
+                <div class="bill-cell">
+                    <h2 class="bill-title"><%= bill.name %></h2>
+                    <p class="bill-details"><strong>Order Price:</strong> $<%= bill.orderPrice %></p>
+                    <p class="bill-details"><strong>Bill URL:</strong> <a href="<%= bill.billURL %>">View Bill</a></p>
+                    <p class="bill-details"><strong>Bill ID:</strong> <%= bill.billID %></p>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>

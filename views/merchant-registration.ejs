@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Merchant Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f2f2f2;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 60%;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="file"],
+        input[type="password"] {
+            width: 97%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            margin-top: 20px;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .flex-center-center-row{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex-center-center-row">
+        <h1>Merchant Registration</h1>
+        <form method="POST" action="/onboard">
+            
+            <label for="name">Merchant Name:</label>
+            <input type="text" id="name" name="name"><br><br>
+
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required><br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+            <label for="password">password:</label>
+            <input type="password" id="password" name="password" required><br><br>
+
+            <label for="storeName">Store Name:</label>
+            <input type="text" id="storeName" name="storeName" required><br><br>
+
+            <label for="fssai-no">FSSAI Lic No:</label>
+            <input type="text" id="fssaiNo" name="fssaiNo" required><br><br>
+            
+            <p style="color: red;">*All the information provied above should be self verifed!</p>
+            <!-- <input name="name" type="text" id="name" val/ue="" placeholder="name"/> -->
+            <button onclick="registermerchant">Register</button>
+        </form>
+
+    </div>
+</body>
+<!-- <script>
+    function registermerchant(){
+        const name = document.getElementById('name').value;
+        const address = document.getElementById('address').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const fssaiNo = document.getElementById('fssaiNo').value;
+        const storeName = document.getElementById('storeName').value;
+
+        fetch('/onboard',{
+            method:'POST',
+
+            body:{
+                name,address,email,password,fssaiNo,storeName
+            }
+        })
+    }
+</script> -->
+</html>
