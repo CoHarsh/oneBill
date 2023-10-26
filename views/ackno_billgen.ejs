@@ -26,6 +26,13 @@
             font-size: 24px;
             color: #333;
         }
+        .generate-bill-btn{
+            background-color: orange;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            border: none;
+            font-size: 15px;
+        }
         h5 {
             font-size: 18px;
             color: #666;
@@ -48,6 +55,8 @@
         <h2>Thanks for using the service!</h2>
         <h5>Bill has been generated! You can access it via this link:</h5>
         <a href="<%= link_url %>">Bill</a>
+        <button class="generate-bill-btn" onclick="location.href = '/'">Generate bill</button>
+
     </div>
 </body>
 </html>

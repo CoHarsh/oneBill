@@ -37,8 +37,9 @@
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            object-fit: cover;
+            /* object-fit: cover; */
             margin: 10px auto;
+            background-color: orange;
         }
 
         .merchant-name {
@@ -84,6 +85,13 @@
         .bill-details {
             font-size: 16px;
         }
+        .generate-bill-btn{
+            background-color: orange;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            border: none;
+            font-size: 15px;
+        }
     </style>
     <!-- Include the Poppins font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
@@ -91,12 +99,12 @@
 <body>
     <div class="profile-container">
         <div class="profile-info">
-            <img src="<%= merchantProfile.image %>" alt="Merchant Profile Image" class="profile-image">
+            <div alt="Merchant Profile Image" class="profile-image"></div>
             <h1 class="merchant-name"><%= merchantProfile.name %></h1>
             <p class="merchant-details"><strong>Email:</strong> <%= merchantProfile.email %></p>
             <p class="merchant-details"><strong>Store Name:</strong> <%= merchantProfile.storeName %></p>
-            <p class="merchant-details"><strong>FSSAI Lic No:</strong> <%= merchantProfile.fssaiNo %></p>
             <p class="merchant-description"><%= merchantProfile.description %></p>
+            <a class="generate-bill-btn" href="/bill/653a5b17ef3c567375d8d427">Generate bill</a>
         </div>
         <div class="profile-cards">
             <!-- Dynamic Bill Cells -->
